@@ -1,6 +1,9 @@
 # Requirements
 
 ## 1. Functional Requirements
+
+---
+
 a. User Registration & Authentication:
 - User must create an account using a valid phone number, email and CNP
 
@@ -19,3 +22,36 @@ d. Document Sharing
 
 e. Search & Organization
 - User can search through their documents using filters
+
+## 2. Non-Functional Requirements
+
+---
+
+a. Performance
+
+b. Security
+
+c. Availability
+
+d. Responsiveness
+
+
+## 3. Technical Requirements
+
+---
+
+a. Frontend
+
+- Built with React.js for dynamic and responsive UI
+
+b. Backend
+- Implementing RESTful API
+- Use Node.js for backend 
+
+c. Authentication and authorization:
+- OAuth 2.0
+
+d. Notification
+
+e. Document Processing
+
