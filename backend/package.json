@@ -1,0 +1,12 @@
+{
+  "name": "PocketDocs",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sequelize": "^6.6.5",
+    "mysql2": "^2.2.5",
+    "jsonwebtoken": "^8.5.1",
+    "axios": "^0.21.4",
+    "cors": "^2.8.5"
+  }
+}
