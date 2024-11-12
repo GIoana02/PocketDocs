@@ -1,3 +1,7 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database');
+const User = require('./User');
+
 const Document = sequelize.define('Document', {
   document_id: {
     type: DataTypes.UUID,

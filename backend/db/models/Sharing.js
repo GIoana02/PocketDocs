@@ -1,3 +1,7 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database');
+const Document = require('./Document');
+
 const Sharing = sequelize.define('Sharing', {
   sharing_id: { type: DataTypes.UUID, primaryKey: true, defaultValue: DataTypes.UUIDV4 },
   document_id: { type: DataTypes.UUID, allowNull: false },

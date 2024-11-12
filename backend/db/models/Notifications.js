@@ -1,4 +1,8 @@
-const Notification = sequelize.define('Notification', {
+const { DataTypes } = require('sequelize');
+const sequelize = require('./database');
+const User = require('./User');
+
+const Notification = sequelize.define('Notifications', {
   notification_id: {
     type: DataTypes.UUID,
     primaryKey: true,
