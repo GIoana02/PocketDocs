@@ -23,12 +23,12 @@ class AddDocs extends StatelessWidget {
                   "Upload here your\ndocument:",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 28,
                     fontWeight: FontWeight.bold,
                     color: Colors.purple,
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 100),
                 
                 // Upload Icon (Centered in the middle of the screen)
                 const Icon(

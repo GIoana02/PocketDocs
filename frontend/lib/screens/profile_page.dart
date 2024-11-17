@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  final TextEditingController _nameController = TextEditingController();
+  bool _isEditing = false;
+  String _userName = ""; // Initialize with empty string
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Get the name passed from the SignUpPage
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args != null) {
+      setState(() {
+        _userName = args as String; // Set the name
+        _nameController.text = _userName; // Initialize text field with the name
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +36,15 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Top Logo and App Name (Positioned at the top)
+                // Top Logo and App Name
                 wrapTheText(),
                 const SizedBox(height: 40),
-                
+
                 // Greeting Message
-                const Text(
-                  "Hello, John Doe!", // This can be dynamic based on the logged-in user
+                Text(
+                  "Hello, $_userName!", // Dynamic greeting
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.purple,
@@ -34,44 +56,52 @@ class ProfilePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Name Text Field (Wider and with adjusted height)
-                    const SizedBox(
-                      width: 300,  // Increased width for the name field
-                      height: 40,  // Reduced height for the name field
+                    // Name Text Field (Editable when in edit mode)
+                    SizedBox(
+                      width: 300,
+                      height: 40,
                       child: TextField(
-                        decoration: InputDecoration(
-                          labelText: "John Doe",
+                        controller: _nameController,
+                        enabled: _isEditing,
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                         ),
-                        enabled: false, // Initially disabled, can be enabled on edit
                       ),
                     ),
                     const SizedBox(width: 10),
-                    // Edit Button
+                    // Edit/Save Button
                     IconButton(
-                      icon: const Icon(Icons.edit, color: Colors.purple),
+                      icon: Icon(
+                        _isEditing ? Icons.check : Icons.edit,
+                        color: Colors.purple,
+                      ),
                       onPressed: () {
-                        // Handle name editing logic here
+                        setState(() {
+                          if (_isEditing) {
+                            _userName = _nameController.text; // Save the new name
+                          }
+                          _isEditing = !_isEditing;
+                        });
                       },
                     ),
                   ],
                 ),
-                const SizedBox(height: 300),
+                const SizedBox(height: 250),
 
                 // Change Password Option
                 Container(
                   width: double.infinity,
-                  color: Colors.purple,  // Purple background for the container
+                  color: Colors.purple,
                   child: ListTile(
                     leading: const Icon(
                       Icons.lock,
-                      color: Colors.white,  // White icon
+                      color: Colors.white,
                     ),
                     title: const Text(
                       'Change Password',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Colors.white,  // White text
+                        color: Colors.white,
                       ),
                     ),
                     onTap: () {
@@ -84,21 +114,45 @@ class ProfilePage extends StatelessWidget {
                 // Delete Account Option
                 Container(
                   width: double.infinity,
-                  color: Colors.purple,  // Purple background for the container
+                  color: Colors.purple,
                   child: ListTile(
                     leading: const Icon(
                       Icons.delete,
-                      color: Colors.white,  // White icon
+                      color: Colors.white,
                     ),
                     title: const Text(
                       'Delete Account',
                       style: TextStyle(
                         fontSize: 18,
-                        color: Colors.white,  // White text
+                        color: Colors.white,
                       ),
                     ),
                     onTap: () {
                       // Handle delete account action here
+                    },
+                  ),
+                ),
+                const Divider(),
+
+                // Logout Option (Matching style with other options)
+                Container(
+                  width: double.infinity,
+                  color: Colors.purple,
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white, // White icon for logout
+                    ),
+                    title: const Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white, // White text
+                      ),
+                    ),
+                    onTap: () {
+                      // Handle logout action here and navigate to SignInPage
+                      Navigator.pushReplacementNamed(context, '/signin');
                     },
                   ),
                 ),

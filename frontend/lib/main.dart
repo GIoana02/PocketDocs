@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
+import 'screens/signin_page.dart';
+import 'screens/signup_page.dart'; 
 import 'screens/home_screen.dart';
-import 'screens/add_docs.dart'; 
-import 'screens/documents.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PocketDocs',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(), // Use HomePage here instead of HomeScreen
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/signup', // Default route to Sign Up page
+      routes: {
+        '/signup': (context) => SignUpPage(), // Sign Up Page route
+        '/signin': (context) => SignInPage(), // Sign In Page route
+        '/home': (context) => HomePage(), // Home Page route
+      },
     );
   }
 }
