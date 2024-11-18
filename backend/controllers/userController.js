@@ -9,6 +9,18 @@ exports.createUser = async (req, res, next) => {
   }
 };
 
-exports.updateUser  = (req, res) =>{
-    res.status(202).json({message: "Updated successfully"});
-}
+exports.updateUser = async (req, res, next) => {
+  try {
+    const { user_id, ...updatedData } = req.body; // Destructure user_id for clarity
+
+    if (!user_id) {
+      return res.status(400).json({ message: 'User ID is required to update user.' });
+    }
+
+    const updatedUser = await userService.updateUser(user_id, updatedData);
+
+    res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    next(error); // Pass error to middleware
+  }
+};
