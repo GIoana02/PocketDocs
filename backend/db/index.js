@@ -5,3 +5,5 @@ sequelize.sync({ alter: true })
     console.log('Database & tables created!');
   })
   .catch((err) => console.error('Error syncing database:', err));
+
+module.exports = {sequelize}
