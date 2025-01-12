@@ -7,19 +7,24 @@ const User = sequelize.define('User', {
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4
   },
+  cnp:{
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      len:[13,13],
+    },
+  },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
   },
   phone_number: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
   },
   password_hash: {
     type: DataTypes.STRING,
@@ -37,6 +42,13 @@ const User = sequelize.define('User', {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
   },
+}, {
+  indexes:[
+    {
+      unique: true,
+      fields: ['name', 'email', 'phone_number', 'cnp']
+    }
+  ]
 });
 
 module.exports = User;

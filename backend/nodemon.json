@@ -1,0 +1,7 @@
+{
+  "watch": ["routes", "swagger.js", "controllers", "index.js", "services", "utils", "middlewares"],
+  "ext": "js,json",
+  "ignore": ["node_modules"],
+  "exec": "node index.js",
+  "verbose": true
+}

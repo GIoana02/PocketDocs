@@ -17,7 +17,7 @@ const Document = sequelize.define('Document', {
     allowNull: false
   },
   type: {
-    type: DataTypes.ENUM('CI', 'Passport', 'Health Insurance', 'Travel Insurance', 'Car Insurance', 'Driver ID'),
+    type: DataTypes.ENUM('IDs', 'Insurances', 'Car Documents', 'House Documents'),
     allowNull: false
   },
   file_path: {

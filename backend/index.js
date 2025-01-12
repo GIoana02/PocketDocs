@@ -3,20 +3,29 @@ const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger/swagger'); // Adjust path if needed
 const userRoutes = require('./routes/userRoutes'); // Import routes
+const documentRoutes = require('./routes/documentRouter');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const { sequelize } = require('./db/index'); // Sequelize setup
-
+const cors = require('cors');
+const path = require('path')
+console.log("Restarted App")
 const app = express();
+app.use(cors());
+
+// Serve static files
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const PORT = 3005;
 
 // Middleware
 app.use(bodyParser.json());
+// Enable CORS
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 app.use('/api/users', userRoutes);
+app.use('/api/documents', documentRoutes)
 
 // Error handling middleware
 app.use(errorMiddleware);
