@@ -170,5 +170,42 @@ router.delete('/delete', authenticateToken, userController.deleteAccount);
  */
 router.patch('/change-password', authenticateToken, userController.changePassword);
 
+/**
+ * @swagger
+ * /api/users/me:
+ *   get:
+ *     summary: Get the profile of the logged-in user
+ *     tags: [Users]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: User profile retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 user_id:
+ *                   type: string
+ *                   description: User ID
+ *                 name:
+ *                   type: string
+ *                   description: Full name of the user
+ *                 email:
+ *                   type: string
+ *                   description: Email of the user
+ *                 phone_number:
+ *                   type: string
+ *                   description: Phone number of the user
+ *                 cnp:
+ *                   type: string
+ *                   description: Personal Numeric Code of the user
+ *       401:
+ *         description: Unauthorized, invalid or missing token
+ *       500:
+ *         description: Internal server error
+ */
+router.get('/me', authenticateToken, userController.getMe);
 
 module.exports = router;

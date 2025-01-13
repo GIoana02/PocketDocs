@@ -34,7 +34,7 @@ exports.updateDocument = async (req, res, next) => {
     const user_id = req.user.id; // Retrieved from the authenticated token
 
     // Find the document to update
-    const document = await documentService.getDocument(user_id, document_id);
+    const document = await documentService.getDocument(document_id);
     if (!document) {
       return res.status(404).json({ message: 'Document not found.' });
     }
@@ -140,3 +140,13 @@ exports.getAllUserDocuments = async (req, res, next) => {
     next(error);
   }
 };
+
+const generateShareableLink = async (documentId) => {
+  const document = await Document.findById(documentId);
+  if (!document) throw new Error('Document not found');
+
+  // Example logic to create a temporary shareable link
+  const shareableLink = `http://yourdomain.com/shared/${documentId}?token=TEMPORARY_SECURE_TOKEN`;
+  return shareableLink;
+};
+

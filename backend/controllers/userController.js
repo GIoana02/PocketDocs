@@ -82,5 +82,30 @@ exports.changePassword = async (req, res, next) => {
   }
 };
 
+exports.getMe = async (req, res, next) => {
+  try {
+    // The user ID is extracted from the JWT in the `authenticateToken` middleware
+    const userId = req.user.id;
+
+    // Fetch the user profile from the database
+    const user = await userService.getUserById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found.' });
+    }
+
+    // Respond with the user profile
+    res.status(200).json({
+      user_id: user.user_id,
+      name: user.name,
+      email: user.email,
+      phone_number: user.phone_number,
+      cnp: user.cnp,
+    });
+  } catch (error) {
+    console.error('Error retrieving user profile:', error);
+    next(error);
+  }
+};
 
 
