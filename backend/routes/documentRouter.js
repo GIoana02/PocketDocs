@@ -30,7 +30,7 @@ const router = express.Router();
  *                 description: Title of the document
  *               type:
  *                 type: string
- *                 enum: [IDs, Insurances, Car Documents, House Documents]
+ *                 enum: [IDs, Insurances, Car Documents, HouseDocuments]
  *                 description: Type of the document
  *               document:
  *                 type: string
@@ -197,6 +197,37 @@ router.delete('/delete/:document_id', authenticateToken, documentController.dele
  *         description: List of filtered documents
  */
 router.get('/filter', authenticateToken, documentController.filterDocuments);
+
+
+/**
+ * @swagger
+ * /api/documents/share/{document_id}:
+ *   post:
+ *     summary: Generate a shareable link for a document
+ *     tags: [Documents]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: document_id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: UUID of the document to share
+ *     responses:
+ *       200:
+ *         description: Shareable link generated successfully
+ */
+router.post('/share/:document_id', authenticateToken, async (req, res) => {
+  const { document_id } = req.params;
+  try {
+    const link = await documentController.generateShareableLink(document_id);
+    res.status(200).json({ link });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate shareable link' });
+  }
+});
+
 
 /**
  * @swagger

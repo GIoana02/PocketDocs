@@ -8,9 +8,16 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 const { sequelize } = require('./db/index'); // Sequelize setup
 const cors = require('cors');
 const path = require('path')
-console.log("Restarted App")
+
 const app = express();
+
 app.use(cors());
+
+app.use(cors({
+  origin: '*', // Allow requests from any origin (update with specific URL in production)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+}));
 
 // Serve static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

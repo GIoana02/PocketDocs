@@ -1,0 +1,96 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.frontend"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml
+10    package="com.example.frontend">
+11    <!--
+12         Required to query activities that can process text, see:
+13         https://developer.android.com/training/package-visibility and
+14         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+15
+16         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+17    -->
+18    <queries>
+18-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:40:5-45:15
+19        <intent>
+19-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:41:9-44:18
+20            <action android:name="android.intent.action.PROCESS_TEXT" />
+20-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:42:13-72
+20-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:42:21-70
+21
+22            <data android:mimeType="text/plain" />
+22-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:43:13-50
+22-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:43:19-48
+23        </intent>
+24    </queries>
+25
+26    <application
+27        android:name="android.app.Application"
+27-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:5:9-42
+28        android:icon="@mipmap/ic_launcher"
+28-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:6:9-43
+29        android:label="frontend" >
+29-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:4:9-33
+30        <activity
+30-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:7:9-28:20
+31            android:name="com.example.frontend.MainActivity"
+31-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:8:13-41
+32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+32-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:13:13-163
+33            android:exported="true"
+33-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:9:13-36
+34            android:hardwareAccelerated="true"
+34-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:14:13-47
+35            android:launchMode="singleTop"
+35-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:10:13-43
+36            android:taskAffinity=""
+36-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:11:13-36
+37            android:theme="@style/LaunchTheme"
+37-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:12:13-47
+38            android:windowSoftInputMode="adjustResize" >
+38-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:15:13-55
+39
+40            <!--
+41                 Specifies an Android theme to apply to this Activity as soon as
+42                 the Android process has started. This theme is visible to the user
+43                 while the Flutter UI initializes. After that, this theme continues
+44                 to determine the Window background behind the Flutter UI.
+45            -->
+46            <meta-data
+46-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:20:13-23:17
+47                android:name="io.flutter.embedding.android.NormalTheme"
+47-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:21:15-70
+48                android:resource="@style/NormalTheme" />
+48-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:22:15-52
+49
+50            <intent-filter>
+50-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:24:13-27:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:25:17-68
+51-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:25:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:26:17-76
+53-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:26:27-74
+54            </intent-filter>
+55        </activity>
+56        <!--
+57             Don't delete the meta-data below.
+58             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+59        -->
+60        <meta-data
+60-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:31:9-33:33
+61            android:name="flutterEmbedding"
+61-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:32:13-44
+62            android:value="2" />
+62-->D:\Work\PocketDocs\frontend\android\app\src\main\AndroidManifest.xml:33:13-30
+63    </application>
+64
+65</manifest>

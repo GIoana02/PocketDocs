@@ -105,3 +105,9 @@ exports.changePassword = async (user_id, current_password, new_password) => {
 
   return true; // Password changed successfully
 };
+
+exports.getUserById = async (userId) => {
+  return await User.findByPk(userId, {
+    attributes: ['user_id', 'name', 'email', 'phone_number', 'cnp'], // Limit the fields returned
+  });
+};

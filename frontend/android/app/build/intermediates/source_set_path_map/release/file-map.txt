@@ -1,0 +1,8 @@
+com.example.frontend.app-pngs-0 D:\Work\PocketDocs\frontend\android\app\build\generated\res\pngs\release
+com.example.frontend.app-resValues-1 D:\Work\PocketDocs\frontend\android\app\build\generated\res\resValues\release
+com.example.frontend.app-packageReleaseResources-2 D:\Work\PocketDocs\frontend\android\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.example.frontend.app-packageReleaseResources-3 D:\Work\PocketDocs\frontend\android\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.example.frontend.app-merged-not-compiled-resources-4 D:\Work\PocketDocs\frontend\android\app\build\intermediates\merged-not-compiled-resources\release
+com.example.frontend.app-merged_res-5 D:\Work\PocketDocs\frontend\android\app\build\intermediates\merged_res\release
+com.example.frontend.app-main-6 D:\Work\PocketDocs\frontend\android\app\src\main\res
+com.example.frontend.app-release-7 D:\Work\PocketDocs\frontend\android\app\src\release\res
